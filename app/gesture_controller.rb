@@ -15,6 +15,7 @@ class GestureController < UIViewController
     self.view.addGestureRecognizer(swipe_gesture_recognizer)
     self.view.addGestureRecognizer(pan_gesture_recognizer)
     self.view.addGestureRecognizer(pinch_gesture_recognizer)
+    view.accessibilityLabel = 'view 1'
     load_labels
   end
 
@@ -52,12 +53,12 @@ class GestureController < UIViewController
   end
 
   def show_alert(message)
-    alert_box = UIAlertView.alloc.initWithTitle("Gesture Action",
+    @alert_box = UIAlertView.alloc.initWithTitle("Gesture Action",
                                                 message:message,
                                                 delegate:nil,
                                                 cancelButtonTitle:"ok",
                                                 otherButtonTitles:nil)
 
-    alert_box.show
+    @alert_box.show
   end
 end
